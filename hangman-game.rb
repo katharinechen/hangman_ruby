@@ -11,11 +11,11 @@ def initialize_game
                   aequeosalinocalcalinoceraceoaluminosocupreovitriolic
                   lopadotemachoselachogaleokranioleipsanodrimhypotrimmatosilphioparaomelitokatakechymenokichlepikossyphophattoperisteralektryonoptekephalliokigklopeleiolagoiosiraiobaphetraganopterygon
                   methionylglutaminylarginyltyrosylglutamylserylleucylphenylalanylalanylglutaminylleucyllysylglutamylarginyllysylglutamylglycylalanylphenylalanylvalylprolylphenylalanylvalylthreonylleucylglycylaspartylprolylglycylisoleucylglutamylglutaminylserylleucyllysylisoleucylaspartylthreonylleucylisoleucylglutamylalanylglycylalanylaspartylalanylleucylglutamylleucylglycylisoleucylprolylphenylalanylserylaspartylprolylleucylalanylaspartylglycylprolylthreonylisoleucylglutaminylaspfraginylalanylthreonylleucylarginylalanylphenylalanylalanylalanylglycylvalylthreonylprolylalanylglutaminylcysteinylphenylalanylglutamylmethionylleucylalanylleucylisoleucylarginylglutaminyllysylhistidylprolylthreonylisoleucylprolylisoleucylglycylleucylleucylmethionyltyrosylalanylasparaginylleucylvalylphenylalanylasparaginyllysylglycylisoleucylaspartylglutamylphenylalanyltyrosylalanylglutaminylcysteinylglutamyllysylvalylglycylvalylaspartylserylvalylleucylvalylalanylaspartylvalylprolylvalylglutaminylglutamylserylalanylprolylphenylalanylarginylglutaminylalanylalanylleucylarginylhistidylasparaginylvalylalanylprolylisoleucylphenylalanylisoleucylcysteinylprolylprolylaspartylalanylaspartylaspartylaspartylleucylleucylarginylglutaminylisoleucylalanylseryltyrosylglycylarginylglycyltyrosylthreonyltyrosylleucylleucylserylarginylalanylglycylvalylthreonylglycylalanylglutamylasparaginylarginylalanylalanylleucylprolylleucylasparaginylhistidylleucylvalylalanyllysylleucyllysylglutamyltyrosylasparaginylalanylalanylprolylprolylleucylglutaminylglycylphenylalanylglycylisoleucylserylalanylprolylaspartylglutaminylvalyllysylalanylalanylisoleucylaspartylalanylglycylalanylalanylglycylalanylisoleucylserylglycylserylalanylisoleucylvalyllysylisoleucylisoleucylglutamylglutaminylhistidylasparaginylisoleucylglutamylprolylglutamyllysylmethionylleucylalanylalanylleucyllysylvalylphenylalanylvalylglutaminylprolylmethionyllysylalanylalanylthreonylarginylserine
-                  cacophony, abbreviated, alleviated, chrysanthemum, pterodactyl, fertilization,
-                  aquaphobic, sovereign, disenfranchised, gentrification,
-                  congratulations, gazebo, orangutan, hominidae,
-                  taxonomically, hemichordata, pharyngeal, xenoturbellida,
-                  xylidine
+                  cacophony abbreviated alleviated chrysanthemum pterodactyl fertilization
+                  aquaphobic sovereign disenfranchised gentrification
+                  congratulations gazebo orangutan hominidae
+                  taxonomically hemichordata pharyngeal xenoturbellida
+                  xylidine !@$%#@!%&!dfda123
      }
   @word = Word.new(word_list[rand(word_list.length)])
   @game = Hangman.new
@@ -59,6 +59,7 @@ def main_menu
   draw_screen
 
   if @game.game_over?
+    puts "Your word was #{@word.word}!"
     if prompt("You failed! He's dead! Play again(Y/N)?").downcase == 'y'
       initialize_game
       return true

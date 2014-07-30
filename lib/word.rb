@@ -8,6 +8,8 @@ class Word
 
   def guess?(letter)
 
+    return false if @word_so_far.include?(letter)
+
     if @word.include?(letter[0])
       a = (0...@word.length).find_all { |i| @word[i] == letter }
       a.each { |x| @word_so_far[x] = letter }

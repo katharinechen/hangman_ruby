@@ -1,5 +1,6 @@
 require './lib/hangman'
 require './lib/word'
+require 'colorize'
 
 def initialize_game
   word_list = %w{
@@ -28,11 +29,11 @@ end
 
 def draw_screen
   system "clear"
-  puts "*" * 80
-  puts "*" + " " * 35 + "Hangman!" + " " * 35 + "*"
-  puts "*" * 80
-  puts @game.image
-  puts @word.word_so_far.split(//).join(' ')
+  puts ("*" * 80).yellow
+  puts ("*" + " " * 35 + ("Hangman!".blink) + (" " * 35) + "*").yellow
+  puts ("*" * 80).yellow
+  puts @game.image.red
+  puts @word.word_so_far.split(//).join(' ').cyan
 end
 
 def main_menu
@@ -60,7 +61,7 @@ def main_menu
 
   if @game.game_over?
     puts "Your word was #{@word.word}!"
-    if prompt("You failed! He's dead! Play again(Y/N)?").downcase == 'y'
+    if prompt("You failed!".red + "He's dead!".blink.red + " Play again(Y/N)?").downcase == 'y'
       initialize_game
       return true
     end

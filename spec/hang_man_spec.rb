@@ -1,6 +1,6 @@
 require 'rspec'
 require 'word'
-require 'hang_man'
+require 'hangman'
 
 describe :Word do
   describe :initialize do
@@ -41,12 +41,62 @@ describe :Word do
     end
   end
 
-  describe :won? do
+  describe :solved? do
     it "should result true if player guessed all of the letters of the word" do
       new_word = Word.new("hi")
       new_word.guess?('h')
       new_word.guess?('i')
-      expect(new_word.won?).to eq true
+      expect(new_word.solved?).to eq true
     end
   end
 end
+
+describe :Hangman do
+
+  describe :initialize do
+    it "should initialize a new instance of the Hangman" do
+      expect(Hangman.new()).to be_an_instance_of Hangman
+    end
+  end
+
+  describe :bad_guess_count do
+    it "returns the number of bad guesses so far" do
+      expect(Hangman.new.bad_guess_count).to eq 0
+    end
+  end
+
+  describe :bad_guess do
+    it "should add a point when player guesses an incorrect letter" do
+      hangman = Hangman.new
+      hangman.bad_guess
+      expect(hangman.bad_guess_count).to eq(1)
+    end
+  end
+
+  describe :game_over? do
+    it "returns false if the player has fewer than 6 bad guesses" do
+      expect(Hangman.new.game_over?).to eq false
+    end
+
+    it "returns true if the player has guessed 6 or more times" do
+      hangman = Hangman.new
+      7.times {hangman.bad_guess}
+      expect(hangman.game_over?).to eq true
+    end
+  end
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+

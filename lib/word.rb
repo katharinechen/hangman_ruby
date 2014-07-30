@@ -16,7 +16,7 @@ class Word
     @word.include?(letter[0])
   end
 
-  def won?
+  def solved?
     @word == @word_so_far
   end
 
